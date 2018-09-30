@@ -1,0 +1,251 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ticket</title>
+  <meta name="description" content="ticket">
+  <meta name="author" content="ticket">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .container-main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container-top {
+      display: flex;
+      width: 100vw;
+      height: 28vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container-ticket {
+      width: calc(100vw - 16px);
+      height: calc(100% - 16px);
+      display: flex;
+      flex-direction: row;
+    }
+
+    .container-ticket-center {
+      width: 50vw;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container-ticket-center-txt {
+      width: 100%;
+      height: 23%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container-ticket-txt-1 {
+      position: absolute;
+      top: 46px;
+      left: 16px;
+      font-size: 12px;
+    }
+
+    .container-ticket-txt-2 {
+      position: absolute;
+      top: 60px;
+      left: 16px;
+      font-size: 12px;
+    }
+
+    .container-mid-1 {
+      display: flex;
+      width: 100vw;
+      height: 28vh;
+      flex-direction: row;
+    }
+
+    .container-mid-1-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container-mid-1-left {
+      width: calc(100% - 16px);
+      height: calc(100% - 8px);
+      border: 1px solid black;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container-mid-1-left-txt {
+      width: 100%;
+      height: 24px;
+      padding: 5px;
+    }
+
+    .container-mid-1-left-txt-1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container-mid-1-left-txt-2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container-mid-1-right {
+      width: calc(100% - 16px);
+      height: calc(100% - 8px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container-mid-2 {
+      display: flex;
+      width: 100vw;
+      height: 15vh;
+    }
+
+    .container-time {
+      display: flex;
+      width: 100vw;
+      height: 7vh;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .container-date {
+      display: flex;
+      width: 100vw;
+      height: 7vh;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .container-color {
+      display: flex;
+      width: 100vw;
+      height: 5vh;
+      flex-direction: row;
+    }
+
+    .container-color-1 {
+      flex: 1;
+      opacity: 1;
+    }
+
+    .container-expiration {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .qrcode {
+      display: block;
+      max-width: 180px;
+      max-height: 180px;
+      height: auto;
+      width: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-main">
+    <div class="container-top">
+      <div class="container-ticket">
+        <div style="flex: 1; position: relative;">
+          <span class="container-ticket-txt-1">ABC</span>
+          <span class="container-ticket-txt-2">XYZ</span>
+        </div>
+        <div class="container-ticket-center">
+          <div class="container-ticket-center-txt">
+            PRINCETON
+          </div>
+          <div class="container-ticket-center-txt">
+            to
+          </div>
+          <div class="container-ticket-center-txt">
+            NEW YORK CITY
+          </div>
+        </div>
+        <div style="flex: 1;"></div>
+      </div>
+    </div>
+    <div class="container-mid-1">
+      <div class="container-mid-1-section">
+        <div class="container-mid-1-left">
+          <div class="container-mid-1-left-txt">
+            <span class="container-mid-1-left-txt-1">One Way</span>
+          </div>
+          <div class="container-mid-1-left-txt">
+            <span class="container-mid-1-left-txt-2">1 Adult</span>
+          </div>
+        </div>
+      </div>
+      <div class="container-mid-1-section">
+        <div class="container-mid-1-right">
+          <div style="display: flex; flex: 1; justify-content: center; align-items: center;">
+            <img src="./qrcode.png" class="qrcode" />
+          </div>
+          <div style="display: flex; width: 100%; height: 35px; justify-content: center; align-items: center;">
+            Tap to enlarge
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-mid-2"></div>
+    <div class="container-time">
+      <span id="span-time"></span>
+    </div>
+    <div class="container-date">
+      <span id="span-date"></span>
+    </div>
+    <div class="container-color">
+      <div class="container-color-1" style="background-color: #c5afe5;"></div>
+      <div class="container-color-1" style="background-color: #afcfe5;"></div>
+      <div class="container-color-1" style="background-color: #afe5e0;"></div>
+    </div>
+    <div class="container-expiration">
+      <span id="span-expiration"></span>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
