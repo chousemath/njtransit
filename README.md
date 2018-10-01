@@ -1,4 +1,4 @@
 ```bash
 # running coffeescript compiler
-$ /Users/jo/Desktop/fake-ticket/node_modules/coffeescript/bin/coffee
+$ /Users/jo/Desktop/fake-ticket/node_modules/coffeescript/bin/coffee -c script.coffee
 ```

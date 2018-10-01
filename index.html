@@ -24,6 +24,7 @@
     body {
       width: 100vw;
       height: 100vh;
+      font-family: 'Helvetica', 'Arial', sans-serif;
     }
 
     .container-main {
@@ -46,6 +47,27 @@
       height: calc(100% - 16px);
       display: flex;
       flex-direction: row;
+      position: relative;
+    }
+
+    #container-ticket-gradient-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 45%;
+      z-index: 2;
+      background-image: linear-gradient(red, #fff);
+    }
+
+    #container-ticket-gradient-2 {
+      position: absolute;
+      top: 55%;
+      left: 0;
+      width: 100%;
+      height: 45%;
+      z-index: 2;
+      background-image: linear-gradient(#fff, red);
     }
 
     .container-ticket-center {
@@ -53,6 +75,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      z-index: 3;
     }
 
     .container-ticket-center-txt {
@@ -63,6 +86,7 @@
       align-items: center;
       font-size: 24px;
       font-weight: bold;
+      z-index: 3;
     }
 
     .container-ticket-txt-1 {
@@ -70,6 +94,8 @@
       top: 46px;
       left: 16px;
       font-size: 12px;
+      z-index: 3;
+      font-weight: bold;
     }
 
     .container-ticket-txt-2 {
@@ -77,6 +103,8 @@
       top: 60px;
       left: 16px;
       font-size: 12px;
+      z-index: 3;
+      font-weight: bold;
     }
 
     .container-mid-1 {
@@ -90,12 +118,12 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .container-mid-1-left {
       width: calc(100% - 16px);
-      height: calc(100% - 8px);
+      height: calc(100% - 43px);
       border: 1px solid black;
       border-radius: 8px;
       display: flex;
@@ -154,7 +182,15 @@
     .container-color {
       display: flex;
       width: 100vw;
-      height: 5vh;
+      height: 28px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container-color-inner {
+      display: flex;
+      width: calc(100vw - 16px);
+      height: 28px;
       flex-direction: row;
     }
 
@@ -174,8 +210,9 @@
 
     .qrcode {
       display: block;
-      max-width: 180px;
-      max-height: 180px;
+      margin-top: 8px;
+      max-width: 172px;
+      max-height: 172px;
       height: auto;
       width: auto;
     }
@@ -187,22 +224,27 @@
   <div class="container-main">
     <div class="container-top">
       <div class="container-ticket">
+
         <div style="flex: 1; position: relative;">
-          <span class="container-ticket-txt-1">ABC</span>
-          <span class="container-ticket-txt-2">XYZ</span>
+          <span class="container-ticket-txt-1">PRJ</span>
+          <span class="container-ticket-txt-2">SEC</span>
         </div>
         <div class="container-ticket-center">
           <div class="container-ticket-center-txt">
-            PRINCETON
+            PRNCTN
           </div>
           <div class="container-ticket-center-txt">
             to
           </div>
           <div class="container-ticket-center-txt">
-            NEW YORK CITY
+            NYP NYP
           </div>
         </div>
         <div style="flex: 1;"></div>
+
+        <div id="container-ticket-gradient-1"></div>
+        <div id="container-ticket-gradient-2"></div>
+
       </div>
     </div>
     <div class="container-mid-1">
@@ -235,16 +277,27 @@
       <span id="span-date"></span>
     </div>
     <div class="container-color">
-      <div class="container-color-1" style="background-color: #c5afe5;"></div>
-      <div class="container-color-1" style="background-color: #afcfe5;"></div>
-      <div class="container-color-1" style="background-color: #afe5e0;"></div>
+      <div class="container-color-inner">
+        <div id="color-1" class="container-color-1" style="background-color: #c5afe5;"></div>
+        <div id="color-2" class="container-color-1" style="background-color: #afcfe5;"></div>
+        <div id="color-3" class="container-color-1" style="background-color: #afe5e0;"></div>
+      </div>
     </div>
     <div class="container-expiration">
       <span id="span-expiration"></span>
     </div>
   </div>
 
+  <input id="input-gradient" type="color" name="color" value="#ff0000" style="position: fixed; left: 200vw; top: 200vh;" />
+  <input id="input-color-1" type="color" name="color-1" value="#ff0000" style="position: fixed; left: 200vw; top: 250vh;" />
+  <input id="input-color-2" type="color" name="color-2" value="#ff0000" style="position: fixed; left: 200vw; top: 300vh;" />
+  <input id="input-color-3" type="color" name="color-3" value="#ff0000" style="position: fixed; left: 200vw; top: 350vh;" />
+
+
   <script src="./script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+  <script src="./spectrum/spectrum.js"></script>
 
 </body>
 
